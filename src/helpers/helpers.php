@@ -31,7 +31,7 @@ class ACLHelper {
      * @return array $columns
      */
     public static function add_column_to_mapping_screen( $columns ) {
-        error_log('Adding column to mapping screen'); // This will log if the function is called
+        //error_log('Adding column to mapping screen'); // This will log if the function is called
         // potential column name => column slug
         $columns['acl_wc_cost_price'] = 'acl_wc_cost_price';
 
@@ -48,14 +48,14 @@ class ACLHelper {
      */
     public static function process_import( $object, $data ) {
 
-        error_log("Processing import for product with ID: " . $object->get_id());
-        error_log("Data array: " . print_r($data, true));        
+        //error_log("Processing import for product with ID: " . $object->get_id());
+        //error_log("Data array: " . print_r($data, true));        
         
         if ( ! empty( $data['meta:acl_wc_cost_price'] ) ) {
             $object->update_meta_data( 'acl_wc_cost_price', $data['meta:acl_wc_cost_price'] );
-            error_log("Setting ACL Cost Price: " . $data['meta:acl_wc_cost_price']);
+            //error_log("Setting ACL Cost Price: " . $data['meta:acl_wc_cost_price']);
         } else {
-            error_log("No ACL Cost Price found for product ID: " . $object->get_id());
+            //error_log("No ACL Cost Price found for product ID: " . $object->get_id());
         }
 
         return $object;
