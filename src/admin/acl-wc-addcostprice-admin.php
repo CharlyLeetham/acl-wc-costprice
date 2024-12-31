@@ -10,7 +10,8 @@ class ACLWcCostprice {
     public static function init() {
         add_action('woocommerce_product_options_pricing', [ACLHelper::class, 'add_cost_price_field'] );
         add_action('woocommerce_process_product_meta', [ACLHelper::class, 'save_cost_price_field'] );
-
+        add_filter( 'woocommerce_csv_product_import_mapping_default_columns', [ACLHelper::class, 'add_column_to_mapping_screen'] );
+        add_filter( 'woocommerce_product_import_pre_insert_product_object', [ACLHelper::class,'process_import'], 10, 2 );        
     }       
 
     /**
