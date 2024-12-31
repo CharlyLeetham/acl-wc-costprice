@@ -1,8 +1,8 @@
 <?php
 namespace ACLWcCostprice\Helpers;
-use ACLWcCostprice\Admin\ACLProductSyncPage;
+use ACLWcCostprice\Admin\ACLWcCostprice;
 
-class ACLWcCostpriceHelper {
+class ACLHelper {
 
     
     function add_cost_price_field() {

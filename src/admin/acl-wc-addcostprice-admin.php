@@ -8,8 +8,8 @@ class ACLWcCostprice {
      * Initializes the admin menu pages and callback URL handler.
      */
     public static function init() {
-        add_action('woocommerce_product_options_pricing', [ACLWcCostpriceHelper::class, 'add_cost_price_field'] );
-        add_action('woocommerce_process_product_meta', [ACLWcCostpriceHelper::class, 'save_cost_price_field'] );
+        add_action('woocommerce_product_options_pricing', [ACLHelper::class, 'add_cost_price_field'] );
+        add_action('woocommerce_process_product_meta', [ACLHelper::class, 'save_cost_price_field'] );
 
     }       
 
