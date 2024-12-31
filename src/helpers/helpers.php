@@ -31,7 +31,7 @@ class ACLHelper {
      * @return array $columns
      */
     public static function add_column_to_mapping_screen( $columns ) {
-        
+        error_log('Adding column to mapping screen'); // This will log if the function is called
         // potential column name => column slug
         $columns['acl_wc_cost_price'] = 'acl_wc_cost_price';
 
