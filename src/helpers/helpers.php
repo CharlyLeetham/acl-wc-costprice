@@ -8,7 +8,7 @@ class ACLHelper {
     public static function add_cost_price_field() {
         woocommerce_wp_text_input(
             array(
-                'id'          => '_acl_wc_cost_price',
+                'id'          => 'acl_wc_cost_price',
                 'label'       => __( 'Cost Price', 'acl-wc-costprice') . ' (' . get_woocommerce_currency_symbol() . ')',
                 'placeholder' => 'Enter cost price',
                 'desc_tip'    => true,
@@ -18,9 +18,9 @@ class ACLHelper {
     }
 
     public static function save_cost_price_field($post_id) {
-        $cost_price = $_POST['_acl_wc_cost_price'];
+        $cost_price = $_POST['acl_wc_cost_price'];
         if (!empty($cost_price)) {
-            update_post_meta( $post_id, '_acl_wc_cost_price', wc_clean( $cost_price ) );
+            update_post_meta( $post_id, 'acl_wc_cost_price', wc_clean( $cost_price ) );
         }
     } 
     
@@ -33,7 +33,7 @@ class ACLHelper {
     public static function add_column_to_mapping_screen( $columns ) {
         
         // potential column name => column slug
-        $columns['_acl_wc_cost_price'] = '_acl_wc_cost_price';
+        $columns['acl_wc_cost_price'] = 'acl_wc_cost_price';
 
         return $columns;
     }
@@ -48,8 +48,8 @@ class ACLHelper {
      */
     public static function process_import( $object, $data ) {
         
-        if ( ! empty( $data['_acl_wc_cost_price'] ) ) {
-            $object->update_meta_data( '_acl_wc_cost_price', $data['_acl_wc_cost_price'] );
+        if ( ! empty( $data['acl_wc_cost_price'] ) ) {
+            $object->update_meta_data( 'acl_wc_cost_price', $data['acl_wc_cost_price'] );
         }
 
         return $object;
