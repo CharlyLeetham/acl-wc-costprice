@@ -21,15 +21,15 @@ class ACLBootstrap {
         });
         */
         // Check if the ACLProductSyncPage class exists
-        if ( ! class_exists( 'ACLWcXeroSync\Admin\ACLProductSyncPage' ) ) {
-            error_log( 'Class ACLProductSyncPage not found' );
+        if ( ! class_exists( 'ACLWcCostprice\Admin\ACLWcCostprice' ) ) {
+            error_log( 'Class ACLWcCostprice not found' );
             return; // Exit initialization to avoid further errors
         }
         
         // Enqueue styles for admin area
         add_action('admin_enqueue_scripts', [ __CLASS__, 'enqueue_styles']);
 
-        Admin\ACLProductSyncPage::init();
+        Admin\ACLWcCostprice::init();
     }
 
     /**
@@ -50,7 +50,7 @@ class ACLBootstrap {
     public static function woocommerce_inactive_notice() {
         ?>
         <div class="error">
-            <p><strong>ACL WooCommerce Xero Sync:</strong> WooCommerce is not active. Please activate WooCommerce to use this plugin.</p>
+            <p><strong>ACL WooCommerce Costprice:</strong> WooCommerce is not active. Please activate WooCommerce to use this plugin.</p>
         </div>
         <?php
     }
@@ -58,6 +58,6 @@ class ACLBootstrap {
     public static function enqueue_styles() {
         $stylesheet_path = plugin_dir_path(__FILE__) . 'assets/css/admin-style.css';
         $version = filemtime( $stylesheet_path );
-        wp_enqueue_style('acl-wc-xero-sync-admin', plugins_url('assets/css/admin-style.css', __FILE__), array(), $version, 'all');
+        //wp_enqueue_style('acl-wc-xero-sync-admin', plugins_url('assets/css/admin-style.css', __FILE__), array(), $version, 'all');
     }    
 }
