@@ -30,7 +30,7 @@ class ACLHelper {
      * @param array $columns
      * @return array $columns
      */
-    function add_column_to_mapping_screen( $columns ) {
+    public static function add_column_to_mapping_screen( $columns ) {
         
         // potential column name => column slug
         $columns['_acl_wc_cost_price'] = '_acl_wc_cost_price';
@@ -46,7 +46,7 @@ class ACLHelper {
      * @param array $data - CSV data read for the product.
      * @return WC_Product $object
      */
-    function process_import( $object, $data ) {
+    public static function process_import( $object, $data ) {
         
         if ( ! empty( $data['_acl_wc_cost_price'] ) ) {
             $object->update_meta_data( '_acl_wc_cost_price', $data['_acl_wc_cost_price'] );
