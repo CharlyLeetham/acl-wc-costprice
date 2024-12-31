@@ -5,7 +5,7 @@ use ACLWcCostprice\Admin\ACLWcCostprice;
 class ACLHelper {
 
     
-    function add_cost_price_field() {
+    public static function add_cost_price_field() {
         woocommerce_wp_text_input(
             array(
                 'id'          => '_acl_wc_cost_price',
@@ -17,7 +17,7 @@ class ACLHelper {
         );
     }
 
-    function save_cost_price_field($post_id) {
+    public static function save_cost_price_field($post_id) {
         $cost_price = $_POST['_acl_wc_cost_price'];
         if (!empty($cost_price)) {
             update_post_meta( $post_id, '_acl_wc_cost_price', wc_clean( $cost_price ) );
